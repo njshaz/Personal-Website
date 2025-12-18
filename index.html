@@ -1,0 +1,1075 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shahzaib Nadeem - Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0f0f23;
+            color: #e4e4e7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 6rem;
+            background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #312e81 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin: 0 0 1.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #a1a1aa;
+            margin: 0 0 3rem;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #e4e4e7;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+            text-align: center;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #a1a1aa;
+        }
+
+        .about-details {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .detail-item {
+            margin-bottom: 2rem;
+        }
+
+        .detail-label {
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .detail-value {
+            color: #e4e4e7;
+            font-size: 1.1rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .card .subtitle {
+            color: #3b82f6;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .meta {
+            color: #71717a;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Education Section */
+        .education-item h3 {
+            color: #ffffff;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .institution {
+            color: #3b82f6;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .education-item .details {
+            color: #a1a1aa;
+            line-height: 1.8;
+        }
+
+        /* Experience Section */
+        .experience-item h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .company {
+            color: #8b5cf6;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .duration {
+            color: #71717a;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Projects Section */
+        .project-card h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            color: #3b82f6;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(139, 92, 246, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .award-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+
+        .award-item h4 {
+            color: #ec4899;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-item p {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            color: #e4e4e7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 35, 0.95);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #71717a;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .card {
+                padding: 2rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav>
+   <div class="nav-container"><a href="#" class="logo" id="nav-logo">SN</a>
+    <ul class="nav-links">
+     <li><a data-section="about">About</a></li>
+     <li><a data-section="projects">Projects</a></li>
+     <li><a data-section="experience">Experience</a></li>
+     <li><a data-section="skills">Skills</a></li>
+     <li><a data-section="resume">Resume</a></li>
+     <li><a data-section="contact">Contact</a></li>
+    </ul>
+   </div>
+  </nav><!-- Hero Section -->
+  <div class="hero">
+   <div class="hero-content">
+    <h1 id="hero-name">Shahzaib Nadeem</h1>
+    <p id="hero-tagline">Computer Engineering Student &amp; Technical Leader</p>
+    <div class="cta-buttons"><button class="cta-button" data-section="contact">Get In Touch</button> <button class="cta-button secondary" data-section="projects">View Projects</button>
+    </div>
+   </div>
+  </div><!-- About Section -->
+  <section id="about">
+   <h2 class="section-title">About Me</h2>
+   <div class="about-content">
+    <div class="about-text">
+     <p id="about-statement">Computer Engineering student and technical leader passionate about embedded systems, hardware design, and mathematics. Dean's Honor Roll. Seeking grad school and hardware/software internships.</p>
+     <p>Currently pursuing my B.S. in Computer Engineering with a Mathematics minor at the University of the Pacific. I have extensive experience in FPGA development, embedded systems, and digital signal processing. My academic excellence is reflected in my Dean's Honor Roll status and membership in Pi Mu Epsilon Honor Society.</p>
+     <p>Through various roles from tutoring to research assistance, I've developed strong leadership skills and a passion for helping others succeed in technical fields. I'm actively seeking opportunities in graduate school and internships that will allow me to further develop my expertise in hardware and software engineering.</p>
+    </div>
+    <div class="about-details">
+     <div class="detail-item">
+      <div class="detail-label">
+       Location
+      </div>
+      <div class="detail-value" id="about-location">
+       Stockton, California
+      </div>
+     </div>
+     <div class="detail-item">
+      <div class="detail-label">
+       Email
+      </div>
+      <div class="detail-value" id="detail-email">
+       snadeem2u@pacific.edu
+      </div>
+     </div>
+     <div class="detail-item">
+      <div class="detail-label">
+       LinkedIn
+      </div>
+      <div class="detail-value">
+       linkedin.com/in/nj-shahzaib
+      </div>
+     </div>
+     <div class="detail-item">
+      <div class="detail-label">
+       Status
+      </div>
+      <div class="detail-value">
+       Seeking Opportunities
+      </div>
+     </div>
+     <div class="detail-item">
+      <div class="detail-label">
+       GPA
+      </div>
+      <div class="detail-value">
+       3.9 Engineering GPA
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Resume/Education Section -->
+  <section id="resume">
+   <h2 class="section-title">Education</h2>
+   <div class="grid-2">
+    <div class="card education-item">
+     <h3>B.S. Computer Engineering</h3>
+     <div class="institution">
+      University of the Pacific
+     </div>
+     <div class="meta">
+      Stockton, CA • Expected December 2025
+     </div>
+     <div class="details">
+      <p><strong>Minor:</strong> Mathematics</p>
+      <p><strong>Honors:</strong> Dean's Honor Roll, Pi Mu Epsilon Honor Society</p>
+      <p><strong>Engineering GPA:</strong> 3.9</p>
+      <p>Focused on embedded systems, digital design, and mathematical applications in engineering. Active member of honor societies and consistently recognized for academic excellence.</p>
+     </div>
+    </div>
+    <div class="card education-item">
+     <h3>A-Levels Pre-Engineering</h3>
+     <div class="institution">
+      Lahore Grammar School
+     </div>
+     <div class="meta">
+      Lahore, Pakistan • 2019–2021
+     </div>
+     <div class="details">
+      <p><strong>Activities:</strong> Magazine Editor, Basketball Player</p>
+      <p>Completed advanced level studies in mathematics, physics, and chemistry with a focus on engineering preparation. Demonstrated leadership through editorial responsibilities and athletic participation.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Experience Section -->
+  <section id="experience">
+   <h2 class="section-title">Professional Experience</h2>
+   <div class="grid-2">
+    <div class="card experience-item">
+     <h3>Engineering Aide</h3>
+     <div class="company">
+      City of Stockton
+     </div>
+     <div class="duration">
+      2025 – Present
+     </div>
+     <p>Performing hardware diagnostics and traffic engineering tasks including fieldwork, troubleshooting camera and sensor systems, and developing traffic control plans. Working directly with municipal infrastructure to ensure optimal traffic flow and safety.</p>
+    </div>
+    <div class="card experience-item">
+     <h3>SOECS Tutor</h3>
+     <div class="company">
+      University of the Pacific
+     </div>
+     <div class="duration">
+      2025 – Present
+     </div>
+     <p>Providing comprehensive tutoring in Mathematics, Computer Science, and Engineering to fellow students. Helping peers understand complex concepts and improve their academic performance in technical subjects.</p>
+    </div>
+    <div class="card experience-item">
+     <h3>STRIPE Cadet</h3>
+     <div class="company">
+      University of the Pacific
+     </div>
+     <div class="duration">
+      2024 – 2025
+     </div>
+     <p>Campus patrol and transportation services focused on student safety. Responsible for maintaining secure campus environment and providing assistance to students and visitors.</p>
+    </div>
+    <div class="card experience-item">
+     <h3>Research Assistant</h3>
+     <div class="company">
+      University of the Pacific
+     </div>
+     <div class="duration">
+      2024
+     </div>
+     <p>Conducted research on EV carbon emissions modeling, formula validation, drive cycles, and energy source analysis. Contributed to understanding environmental impact of electric vehicles through data analysis and modeling.</p>
+    </div>
+    <div class="card experience-item">
+     <h3>Resident Assistant</h3>
+     <div class="company">
+      University of the Pacific
+     </div>
+     <div class="duration">
+      2022 – 2024
+     </div>
+     <p>Community leader responsible for inclusive programming and student support. Organized events, provided guidance to residents, and fostered a positive living environment for diverse student populations.</p>
+    </div>
+    <div class="card experience-item">
+     <h3>Academic Tutor</h3>
+     <div class="company">
+      General Academic Tutoring Center
+     </div>
+     <div class="duration">
+      2022 – 2024
+     </div>
+     <p>Specialized in mathematics and circuits tutoring, focusing on problem-solving techniques and exam preparation. Helped students develop strong foundational skills in technical subjects.</p>
+    </div>
+    <div class="card experience-item">
+     <h3>Math Tutor</h3>
+     <div class="company">
+      University of the Pacific
+     </div>
+     <div class="duration">
+      2022
+     </div>
+     <p>Provided business calculus tutoring with emphasis on creative problem-solving approaches. Developed innovative teaching methods to help students grasp complex mathematical concepts.</p>
+    </div>
+    <div class="card experience-item">
+     <h3>Game Developer Intern</h3>
+     <div class="company">
+      UET Lahore
+     </div>
+     <div class="duration">
+      2022
+     </div>
+     <p>Worked on 3D asset optimization, gameplay mechanics, and debugging for Unity projects. Gained experience in game development pipeline and collaborative software development practices.</p>
+    </div>
+   </div>
+  </section><!-- Projects Section -->
+  <section id="projects">
+   <h2 class="section-title">Featured Projects</h2>
+   <div class="grid-3">
+    <div class="card project-card">
+     <h3>Ion Thruster</h3>
+     <p>Designed and built an ion thruster system using high-voltage air ionization principles. Implemented 3D design and simulation to optimize performance and safety.</p>
+     <div class="project-tech"><span class="tech-tag">Arduino</span> <span class="tech-tag">PSpice</span> <span class="tech-tag">Simulink</span> <span class="tech-tag">3D Design</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>FPGA ALU</h3>
+     <p>Developed a comprehensive Arithmetic Logic Unit on FPGA using SystemVerilog. Implemented complex digital logic with FSM control and extensive testing.</p>
+     <div class="project-tech"><span class="tech-tag">SystemVerilog</span> <span class="tech-tag">Cyclone V</span> <span class="tech-tag">Quartus</span> <span class="tech-tag">FSM</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>Autonomous Arduino Car</h3>
+     <p>Built an autonomous vehicle using IR and PING sensors with DHT22 environmental monitoring. Implemented line tracking and obstacle avoidance algorithms.</p>
+     <div class="project-tech"><span class="tech-tag">Arduino</span> <span class="tech-tag">C++</span> <span class="tech-tag">Sensors</span> <span class="tech-tag">Embedded</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>AC-DC Converter</h3>
+     <p>Designed and analyzed power conversion circuits using diodes and zener regulators. Performed comprehensive circuit analysis and simulation.</p>
+     <div class="project-tech"><span class="tech-tag">MATLAB</span> <span class="tech-tag">SPICE</span> <span class="tech-tag">Circuit Analysis</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>Digital Signal Processing</h3>
+     <p>Implemented various filters, DFT/FFT algorithms, and spectrum analysis tools. Comprehensive study of signal processing techniques and applications.</p>
+     <div class="project-tech"><span class="tech-tag">MATLAB</span> <span class="tech-tag">Simulink</span> <span class="tech-tag">DSP</span> <span class="tech-tag">FFT</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>H-Bridge Motor Control</h3>
+     <p>Designed PWM-controlled H-bridge circuits using MOSFETs for precise motor control. Performed detailed circuit analysis and optimization.</p>
+     <div class="project-tech"><span class="tech-tag">PWM</span> <span class="tech-tag">MOSFETs</span> <span class="tech-tag">PSpice</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>Bank Management System</h3>
+     <p>Developed a comprehensive terminal-based banking system using object-oriented programming principles and advanced data structures.</p>
+     <div class="project-tech"><span class="tech-tag">C++</span> <span class="tech-tag">OOP</span> <span class="tech-tag">Data Structures</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>FPGA Simon Says</h3>
+     <p>Created an interactive Simon Says game on FPGA with LED displays and user input handling. Implemented complex state machine logic.</p>
+     <div class="project-tech"><span class="tech-tag">SystemVerilog</span> <span class="tech-tag">FSM</span> <span class="tech-tag">LEDs</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>Python Cache Simulator</h3>
+     <p>Built a memory cache simulator to analyze performance optimization techniques and memory access patterns using advanced Python programming.</p>
+     <div class="project-tech"><span class="tech-tag">Python</span> <span class="tech-tag">Performance</span> <span class="tech-tag">Argparse</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>Security Audit</h3>
+     <p>Conducted comprehensive security assessment of Tiger Enterprises using industry-standard tools for vulnerability detection and exploitation analysis.</p>
+     <div class="project-tech"><span class="tech-tag">Nmap</span> <span class="tech-tag">OpenVAS</span> <span class="tech-tag">Nessus</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>MIPS Datapath Simulation</h3>
+     <p>Implemented a complete MIPS processor simulation in Python, including assembly language processing and execution pipeline.</p>
+     <div class="project-tech"><span class="tech-tag">Python</span> <span class="tech-tag">MIPS</span> <span class="tech-tag">Assembly</span>
+     </div>
+    </div>
+    <div class="card project-card">
+     <h3>Shamir's Secret Sharing</h3>
+     <p>Implemented cryptographic secret sharing algorithm for secure data distribution and reconstruction using advanced mathematical principles.</p>
+     <div class="project-tech"><span class="tech-tag">Cryptography</span> <span class="tech-tag">Python</span> <span class="tech-tag">Security</span>
+     </div>
+    </div>
+   </div>
+  </section><!-- Skills Section -->
+  <section id="skills">
+   <h2 class="section-title">Technical Skills</h2>
+   <div class="skills-container">
+    <div class="card skill-category">
+     <h3>Programming Languages</h3>
+     <div class="skill-tags"><span class="skill-tag">SystemVerilog</span> <span class="skill-tag">C++</span> <span class="skill-tag">Python</span> <span class="skill-tag">C#</span>
+     </div>
+    </div>
+    <div class="card skill-category">
+     <h3>Design &amp; Simulation</h3>
+     <div class="skill-tags"><span class="skill-tag">Quartus</span> <span class="skill-tag">PSpice</span> <span class="skill-tag">LTSpice</span> <span class="skill-tag">MATLAB</span> <span class="skill-tag">Simulink</span>
+     </div>
+    </div>
+    <div class="card skill-category">
+     <h3>Hardware &amp; Embedded</h3>
+     <div class="skill-tags"><span class="skill-tag">Arduino</span> <span class="skill-tag">Embedded Systems</span> <span class="skill-tag">Hardware Diagnostics</span> <span class="skill-tag">Digital Signal Processing</span>
+     </div>
+    </div>
+    <div class="card skill-category">
+     <h3>Software &amp; Tools</h3>
+     <div class="skill-tags"><span class="skill-tag">Unity</span> <span class="skill-tag">OOP</span> <span class="skill-tag">Debugging</span> <span class="skill-tag">Bluebeam</span>
+     </div>
+    </div>
+    <div class="card skill-category">
+     <h3>Engineering &amp; Leadership</h3>
+     <div class="skill-tags"><span class="skill-tag">Traffic Engineering</span> <span class="skill-tag">Leadership</span> <span class="skill-tag">Teamwork</span> <span class="skill-tag">Project Management</span>
+     </div>
+    </div>
+   </div>
+  </section><!-- Awards & Certifications -->
+  <section id="awards">
+   <h2 class="section-title">Awards &amp; Leadership</h2>
+   <div class="awards-grid">
+    <div class="award-item">
+     <h4>Dean's Honor Roll</h4>
+     <p>Academic Excellence Recognition</p>
+    </div>
+    <div class="award-item">
+     <h4>Pi Mu Epsilon</h4>
+     <p>Mathematics Honor Society</p>
+    </div>
+    <div class="award-item">
+     <h4>Polara APS</h4>
+     <p>Professional Certification</p>
+    </div>
+    <div class="award-item">
+     <h4>MSA Coordinator</h4>
+     <p>Muslim Student Association Leadership</p>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section id="contact">
+   <h2 class="section-title">Get In Touch</h2>
+   <div class="contact-content">
+    <p style="font-size: 1.3rem; color: #a1a1aa; margin-bottom: 2rem;">I'm actively seeking graduate school opportunities and internships in hardware/software engineering. Let's connect and discuss how we can work together!</p>
+    <div class="contact-links"><a href="mailto:snadeem2u@pacific.edu" class="contact-link" target="_blank" rel="noopener noreferrer" id="contact-email-link"> <span class="contact-icon">📧</span> <span id="contact-email">snadeem2u@pacific.edu</span> </a> <a href="https://linkedin.com/in/nj-shahzaib" class="contact-link" target="_blank" rel="noopener noreferrer" id="contact-linkedin-link"> <span class="contact-icon">💼</span> <span id="contact-linkedin">LinkedIn Profile</span> </a>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer>
+   <p>© 2025 Shahzaib Nadeem. All rights reserved. | Computer Engineering Student at University of the Pacific</p>
+  </footer>
+  <script>
+        const defaultConfig = {
+            site_name: "Shahzaib Nadeem",
+            site_tagline: "Computer Engineering Student & Technical Leader",
+            about_statement: "Computer Engineering student and technical leader passionate about embedded systems, hardware design, and mathematics. Dean's Honor Roll. Seeking grad school and hardware/software internships.",
+            about_location: "Stockton, California",
+            contact_email: "snadeem2u@pacific.edu",
+            contact_linkedin: "linkedin.com/in/nj-shahzaib",
+            background_color: "#0f0f23",
+            accent_color: "#3b82f6",
+            secondary_accent: "#8b5cf6",
+            text_color: "#e4e4e7",
+            card_background: "rgba(255, 255, 255, 0.03)",
+            font_family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell",
+            font_size: 16
+        };
+
+        async function onConfigChange(config) {
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = 'sans-serif';
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const cardBackground = config.card_background || defaultConfig.card_background;
+
+            // Update text content
+            document.getElementById('hero-name').textContent = config.site_name || defaultConfig.site_name;
+            document.getElementById('hero-tagline').textContent = config.site_tagline || defaultConfig.site_tagline;
+            document.getElementById('about-statement').textContent = config.about_statement || defaultConfig.about_statement;
+            document.getElementById('about-location').textContent = config.about_location || defaultConfig.about_location;
+            document.getElementById('detail-email').textContent = config.contact_email || defaultConfig.contact_email;
+            document.getElementById('contact-email').textContent = config.contact_email || defaultConfig.contact_email;
+            
+            // Update email link
+            const emailLink = document.getElementById('contact-email-link');
+            emailLink.href = `mailto:${config.contact_email || defaultConfig.contact_email}`;
+            
+            // Update LinkedIn link
+            const linkedinUrl = config.contact_linkedin || defaultConfig.contact_linkedin;
+            const linkedinLink = document.getElementById('contact-linkedin-link');
+            linkedinLink.href = linkedinUrl.startsWith('http') ? linkedinUrl : `https://${linkedinUrl}`;
+
+            // Update logo
+            const initials = (config.site_name || defaultConfig.site_name).split(' ').map(n => n[0]).join('');
+            document.getElementById('nav-logo').textContent = initials;
+
+            // Apply colors
+            document.body.style.background = backgroundColor;
+            document.body.style.color = textColor;
+
+            // Update all cards
+            const cards = document.querySelectorAll('.card, .award-item');
+            cards.forEach(card => {
+                card.style.background = cardBackground;
+            });
+
+            // Update accent colors
+            const accentElements = document.querySelectorAll('.detail-label, .skill-category h3, .institution, .company');
+            accentElements.forEach(el => {
+                el.style.color = accentColor;
+            });
+
+            // Apply font family
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+            // Apply font sizes
+            document.body.style.fontSize = `${baseSize}px`;
+            document.querySelector('.hero h1').style.fontSize = `${baseSize * 2.8}px`;
+            document.querySelector('.hero p').style.fontSize = `${baseSize * 1.4}px`;
+            document.querySelectorAll('.section-title').forEach(el => {
+                el.style.fontSize = `${baseSize * 3}px`;
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.card_background || defaultConfig.card_background,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.card_background = value;
+                                window.elementSdk.setConfig({ card_background: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.accent_color = value;
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        if (window.elementSdk) {
+                            window.elementSdk.config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        if (window.elementSdk) {
+                            window.elementSdk.config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["site_name", config.site_name || defaultConfig.site_name],
+                ["site_tagline", config.site_tagline || defaultConfig.site_tagline],
+                ["about_statement", config.about_statement || defaultConfig.about_statement],
+                ["about_location", config.about_location || defaultConfig.about_location],
+                ["contact_email", config.contact_email || defaultConfig.contact_email],
+                ["contact_linkedin", config.contact_linkedin || defaultConfig.contact_linkedin]
+            ]);
+        }
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('[data-section]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = link.getAttribute('data-section');
+                const element = document.getElementById(section);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'999ae59c2159d7cf',t:'MTc2MjMzMDQ1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
